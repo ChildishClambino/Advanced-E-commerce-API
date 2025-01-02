@@ -12,6 +12,14 @@ class Customer(db.Model):
     account = db.relationship('CustomerAccount', back_populates='customer', uselist=False, cascade="all, delete-orphan")
     orders = db.relationship('Order', back_populates='customer', cascade="all, delete-orphan")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email,
+            'phone': self.phone
+        }
+
 # CustomerAccount Model
 class CustomerAccount(db.Model):
     __tablename__ = 'customer_accounts'
@@ -48,6 +56,9 @@ class OrderProduct(db.Model):
     order = db.relationship('Order', back_populates='products')
     product = db.relationship('Product', back_populates='order_items')
 
-# Debug print to check metadata
-print("Metadata tables after model definitions:", db.metadata.tables.keys())
-print("Final metadata tables in models:", db.metadata.tables.keys())
+# User Model
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)

@@ -1,48 +1,55 @@
-from flask import Flask
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
 from app.config import Config
+import logging
 
+# Initialize SQLAlchemy and Flask-Migrate
 db = SQLAlchemy()
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    # Configure logging
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format='%(asctime)s [%(levelname)s] %(message)s',
+        handlers=[logging.StreamHandler()]
+    )
+
+    # Log incoming requests
+    @app.before_request
+    def log_request():
+        app.logger.info(f"Handling request: {request.method} {request.path}")
+
+    # Initialize extensions
     db.init_app(app)
+    migrate.init_app(app, db)  # Initialize Flask-Migrate
+    jwt = JWTManager(app)
 
+    # Log app context explicitly
     with app.app_context():
-        # Import all models explicitly to ensure they are registered
-        from app.models.models import Customer, CustomerAccount, Product, Order, OrderProduct
+        app.logger.debug("App context is active.")
+        app.logger.debug(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
 
-        # Debugging: Log metadata tables
-        print("Metadata tables after model definitions:", db.metadata.tables.keys())
+        # Import models explicitly to register them
+        from app.models.models import Customer, CustomerAccount, Product, Order, OrderProduct, User
 
-        # Drop and recreate tables
-        try:
-            print("Dropping all tables...")
-            db.drop_all()
-            print("Tables dropped successfully!")
+        # Log metadata before applying migrations
+        app.logger.debug(f"Metadata tables: {db.metadata.tables.keys()}")
 
-            print("Creating all tables using db.create_all()...")
-            db.create_all()
-            print("Tables created successfully! Metadata tables after db.create_all:", db.metadata.tables.keys())
-        except Exception as e:
-            print(f"Error during table creation: {e}")
+        # Ensure all tables are registered
+        if 'users' not in db.metadata.tables:
+            app.logger.error("Users table is missing in metadata.")
 
-        # Test raw SQL execution for further debugging
-        try:
-            print("Testing raw SQL...")
-            with db.engine.connect() as connection:
-                connection.execute(db.text("""
-                    CREATE TABLE IF NOT EXISTS test_table (
-                        id INT AUTO_INCREMENT PRIMARY KEY,
-                        name VARCHAR(100)
-                    );
-                """))
-                print("Raw SQL table created!")
-                connection.execute(db.text("DROP TABLE IF EXISTS test_table;"))
-                print("Raw SQL table dropped!")
-        except Exception as e:
-            print(f"Error during raw SQL execution: {e}")
+    # Register blueprints
+    from app.routes.customers import customers_bp
+    from app.routes.auth import auth_bp
+
+    app.register_blueprint(customers_bp, url_prefix='/api')
+    app.register_blueprint(auth_bp, url_prefix='/api')
 
     return app

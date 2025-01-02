@@ -1,0 +1,639 @@
+2024-12-23 15:33:10,292 [INFO] SELECT DATABASE()
+2024-12-23 15:33:10,293 [INFO] [raw sql] {}
+2024-12-23 15:33:10,293 [INFO] SELECT @@sql_mode
+2024-12-23 15:33:10,294 [INFO] [raw sql] {}
+2024-12-23 15:33:10,294 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:33:10,294 [INFO] [raw sql] {}
+2024-12-23 15:33:10,295 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,295 [INFO] COMMIT
+2024-12-23 15:33:10,295 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,296 [INFO] COMMIT
+2024-12-23 15:33:10,301 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,301 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:33:10,304 [INFO] [generated in 0.00303s] {}
+2024-12-23 15:33:10,315 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:33:10,315 [INFO] [generated in 0.00041s] {}
+2024-12-23 15:33:10,322 [INFO] ROLLBACK
+2024-12-23 15:33:10,336 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-23 15:33:10,337 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-23 15:33:10,338 [INFO]  * Restarting with stat
+2024-12-23 15:33:10,822 [INFO] SELECT DATABASE()
+2024-12-23 15:33:10,822 [INFO] [raw sql] {}
+2024-12-23 15:33:10,823 [INFO] SELECT @@sql_mode
+2024-12-23 15:33:10,823 [INFO] [raw sql] {}
+2024-12-23 15:33:10,824 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:33:10,824 [INFO] [raw sql] {}
+2024-12-23 15:33:10,825 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,825 [INFO] COMMIT
+2024-12-23 15:33:10,826 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,826 [INFO] COMMIT
+2024-12-23 15:33:10,831 [INFO] BEGIN (implicit)
+2024-12-23 15:33:10,831 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:33:10,832 [INFO] [generated in 0.00123s] {}
+2024-12-23 15:33:10,844 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:33:10,845 [INFO] [generated in 0.00056s] {}
+2024-12-23 15:33:10,853 [INFO] ROLLBACK
+2024-12-23 15:33:10,866 [WARNING]  * Debugger is active!
+2024-12-23 15:33:10,869 [INFO]  * Debugger PIN: 891-388-493
+2024-12-23 15:33:15,888 [INFO] Handling request: GET /health
+2024-12-23 15:33:15,890 [INFO] 127.0.0.1 - - [23/Dec/2024 15:33:15] "GET /health HTTP/1.1" 200 -
+2024-12-23 15:33:44,510 [INFO] Handling request: POST /customers
+2024-12-23 15:33:44,511 [DEBUG] Request data: {'name': 'John Doe', 'email': 'john.doe@example.com', 'phone': '123-456-7890'}
+2024-12-23 15:33:44,603 [ERROR] Error in create_customer: Traceback (most recent call last):
+  File "C:\Users\jacob\M13 Mini-Project Advanced E-Commerce API\app\routes\customers.py", line 26, in create_customer
+    db.session.commit()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1753, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1038, in connection
+    bind = self.session.get_bind(bindkey, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\session.py", line 61, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\extension.py", line 629, in engines
+    return self._app_engines[app]
+           ~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 415, in __getitem__
+    return self.data[ref(key)]
+           ~~~~~~~~~^^^^^^^^^^
+KeyError: <weakref at 0x000001E4BC4935B0; to 'Flask' at 0x000001E4B8755AF0>
+
+2024-12-23 15:33:44,607 [INFO] 127.0.0.1 - - [23/Dec/2024 15:33:44] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-23 15:41:00,200 [INFO] SELECT DATABASE()
+2024-12-23 15:41:00,201 [INFO] [raw sql] {}
+2024-12-23 15:41:00,201 [INFO] SELECT @@sql_mode
+2024-12-23 15:41:00,201 [INFO] [raw sql] {}
+2024-12-23 15:41:00,201 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:41:00,202 [INFO] [raw sql] {}
+2024-12-23 15:41:00,202 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,202 [INFO] COMMIT
+2024-12-23 15:41:00,203 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,203 [INFO] COMMIT
+2024-12-23 15:41:00,219 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,219 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:41:00,220 [INFO] [generated in 0.00119s] {}
+2024-12-23 15:41:00,233 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:41:00,233 [INFO] [generated in 0.00041s] {}
+2024-12-23 15:41:00,239 [INFO] ROLLBACK
+2024-12-23 15:41:00,253 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-23 15:41:00,254 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-23 15:41:00,255 [INFO]  * Restarting with stat
+2024-12-23 15:41:00,751 [INFO] SELECT DATABASE()
+2024-12-23 15:41:00,752 [INFO] [raw sql] {}
+2024-12-23 15:41:00,752 [INFO] SELECT @@sql_mode
+2024-12-23 15:41:00,753 [INFO] [raw sql] {}
+2024-12-23 15:41:00,753 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:41:00,753 [INFO] [raw sql] {}
+2024-12-23 15:41:00,754 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,754 [INFO] COMMIT
+2024-12-23 15:41:00,755 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,755 [INFO] COMMIT
+2024-12-23 15:41:00,760 [INFO] BEGIN (implicit)
+2024-12-23 15:41:00,760 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:41:00,762 [INFO] [generated in 0.00106s] {}
+2024-12-23 15:41:00,773 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:41:00,773 [INFO] [generated in 0.00042s] {}
+2024-12-23 15:41:00,780 [INFO] ROLLBACK
+2024-12-23 15:41:00,791 [WARNING]  * Debugger is active!
+2024-12-23 15:41:00,794 [INFO]  * Debugger PIN: 891-388-493
+2024-12-23 15:41:10,735 [INFO] Handling request: POST /customers
+2024-12-23 15:41:10,736 [DEBUG] Request data: {'name': 'John Doe', 'email': 'john.doe@example.com', 'phone': '123-456-7890'}
+2024-12-23 15:41:10,743 [DEBUG] App context active: <Flask 'app'>
+2024-12-23 15:41:10,743 [DEBUG] Database session: <sqlalchemy.orm.scoping.scoped_session object at 0x0000024C3D85CD10>
+2024-12-23 15:41:10,748 [ERROR] Error in create_customer: Traceback (most recent call last):
+  File "C:\Users\jacob\M13 Mini-Project Advanced E-Commerce API\app\routes\customers.py", line 28, in create_customer
+    db.session.commit()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1753, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1038, in connection
+    bind = self.session.get_bind(bindkey, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\session.py", line 61, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\extension.py", line 629, in engines
+    return self._app_engines[app]
+           ~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 415, in __getitem__
+    return self.data[ref(key)]
+           ~~~~~~~~~^^^^^^^^^^
+KeyError: <weakref at 0x0000024C3D683600; to 'Flask' at 0x0000024C39945AF0>
+
+2024-12-23 15:41:10,752 [INFO] 127.0.0.1 - - [23/Dec/2024 15:41:10] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-23 15:46:37,751 [INFO] SELECT DATABASE()
+2024-12-23 15:46:37,751 [INFO] [raw sql] {}
+2024-12-23 15:46:37,751 [INFO] SELECT @@sql_mode
+2024-12-23 15:46:37,751 [INFO] [raw sql] {}
+2024-12-23 15:46:37,752 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:46:37,752 [INFO] [raw sql] {}
+2024-12-23 15:46:37,752 [INFO] BEGIN (implicit)
+2024-12-23 15:46:37,753 [INFO] COMMIT
+2024-12-23 15:46:37,753 [INFO] BEGIN (implicit)
+2024-12-23 15:46:37,754 [INFO] COMMIT
+2024-12-23 15:46:37,769 [INFO] BEGIN (implicit)
+2024-12-23 15:46:37,769 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:46:37,770 [INFO] [generated in 0.00123s] {}
+2024-12-23 15:46:37,781 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:46:37,781 [INFO] [generated in 0.00036s] {}
+2024-12-23 15:46:37,788 [INFO] ROLLBACK
+2024-12-23 15:47:51,457 [INFO] SELECT DATABASE()
+2024-12-23 15:47:51,457 [INFO] [raw sql] {}
+2024-12-23 15:47:51,458 [INFO] SELECT @@sql_mode
+2024-12-23 15:47:51,458 [INFO] [raw sql] {}
+2024-12-23 15:47:51,458 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:47:51,458 [INFO] [raw sql] {}
+2024-12-23 15:47:51,459 [INFO] BEGIN (implicit)
+2024-12-23 15:47:51,459 [INFO] COMMIT
+2024-12-23 15:47:51,460 [INFO] BEGIN (implicit)
+2024-12-23 15:47:51,460 [INFO] COMMIT
+2024-12-23 15:47:51,465 [INFO] BEGIN (implicit)
+2024-12-23 15:47:51,465 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:47:51,466 [INFO] [generated in 0.00107s] {}
+2024-12-23 15:47:51,478 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:47:51,478 [INFO] [generated in 0.00044s] {}
+2024-12-23 15:47:51,485 [INFO] ROLLBACK
+2024-12-23 15:50:04,378 [INFO] SELECT DATABASE()
+2024-12-23 15:50:04,378 [INFO] [raw sql] {}
+2024-12-23 15:50:04,379 [INFO] SELECT @@sql_mode
+2024-12-23 15:50:04,379 [INFO] [raw sql] {}
+2024-12-23 15:50:04,379 [INFO] SELECT @@lower_case_table_names
+2024-12-23 15:50:04,380 [INFO] [raw sql] {}
+2024-12-23 15:50:04,380 [INFO] BEGIN (implicit)
+2024-12-23 15:50:04,380 [INFO] COMMIT
+2024-12-23 15:50:04,381 [INFO] BEGIN (implicit)
+2024-12-23 15:50:04,381 [INFO] COMMIT
+2024-12-23 15:50:04,384 [INFO] BEGIN (implicit)
+2024-12-23 15:50:04,384 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-23 15:50:04,385 [INFO] [generated in 0.00112s] {}
+2024-12-23 15:50:04,395 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-23 15:50:04,395 [INFO] [generated in 0.00037s] {}
+2024-12-23 15:50:04,401 [INFO] ROLLBACK
+2024-12-26 21:43:21,805 [INFO] SELECT DATABASE()
+2024-12-26 21:43:21,806 [INFO] [raw sql] {}
+2024-12-26 21:43:21,807 [INFO] SELECT @@sql_mode
+2024-12-26 21:43:21,807 [INFO] [raw sql] {}
+2024-12-26 21:43:21,808 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:43:21,808 [INFO] [raw sql] {}
+2024-12-26 21:43:21,809 [INFO] BEGIN (implicit)
+2024-12-26 21:43:21,809 [INFO] COMMIT
+2024-12-26 21:43:21,811 [INFO] BEGIN (implicit)
+2024-12-26 21:43:21,811 [INFO] COMMIT
+2024-12-26 21:43:21,828 [INFO] BEGIN (implicit)
+2024-12-26 21:43:21,829 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:43:21,829 [INFO] [generated in 0.00122s] {}
+2024-12-26 21:43:21,880 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:43:21,880 [INFO] [generated in 0.00042s] {}
+2024-12-26 21:43:21,892 [INFO] ROLLBACK
+2024-12-26 21:43:21,908 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-26 21:43:21,908 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-26 21:43:21,909 [INFO]  * Restarting with stat
+2024-12-26 21:43:22,399 [INFO] SELECT DATABASE()
+2024-12-26 21:43:22,399 [INFO] [raw sql] {}
+2024-12-26 21:43:22,400 [INFO] SELECT @@sql_mode
+2024-12-26 21:43:22,400 [INFO] [raw sql] {}
+2024-12-26 21:43:22,400 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:43:22,401 [INFO] [raw sql] {}
+2024-12-26 21:43:22,402 [INFO] BEGIN (implicit)
+2024-12-26 21:43:22,402 [INFO] COMMIT
+2024-12-26 21:43:22,403 [INFO] BEGIN (implicit)
+2024-12-26 21:43:22,403 [INFO] COMMIT
+2024-12-26 21:43:22,408 [INFO] BEGIN (implicit)
+2024-12-26 21:43:22,409 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:43:22,409 [INFO] [generated in 0.00101s] {}
+2024-12-26 21:43:22,422 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:43:22,422 [INFO] [generated in 0.00040s] {}
+2024-12-26 21:43:22,431 [INFO] ROLLBACK
+2024-12-26 21:43:22,443 [WARNING]  * Debugger is active!
+2024-12-26 21:43:22,446 [INFO]  * Debugger PIN: 891-388-493
+2024-12-26 21:43:51,312 [INFO] Handling request: POST /customers
+2024-12-26 21:43:51,312 [DEBUG] Request data: {'name': 'John Doe', 'email': 'john.doe@example.com', 'phone': '123-456-7890'}
+2024-12-26 21:43:51,402 [ERROR] Error in create_customer: Traceback (most recent call last):
+  File "C:\Users\jacob\M13 Mini-Project Advanced E-Commerce API\app\routes\customers.py", line 24, in create_customer
+    db.session.commit()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1753, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1038, in connection
+    bind = self.session.get_bind(bindkey, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\session.py", line 61, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\extension.py", line 629, in engines
+    return self._app_engines[app]
+           ~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 415, in __getitem__
+    return self.data[ref(key)]
+           ~~~~~~~~~^^^^^^^^^^
+KeyError: <weakref at 0x0000025FF3A63650; to 'Flask' at 0x0000025FEFD65B50>
+
+2024-12-26 21:43:51,406 [INFO] 127.0.0.1 - - [26/Dec/2024 21:43:51] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-26 21:46:22,217 [INFO] SELECT DATABASE()
+2024-12-26 21:46:22,217 [INFO] [raw sql] {}
+2024-12-26 21:46:22,218 [INFO] SELECT @@sql_mode
+2024-12-26 21:46:22,218 [INFO] [raw sql] {}
+2024-12-26 21:46:22,219 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:46:22,219 [INFO] [raw sql] {}
+2024-12-26 21:46:22,219 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,220 [INFO] COMMIT
+2024-12-26 21:46:22,221 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,221 [INFO] COMMIT
+2024-12-26 21:46:22,238 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,238 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:46:22,239 [INFO] [generated in 0.00119s] {}
+2024-12-26 21:46:22,251 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:46:22,252 [INFO] [generated in 0.00045s] {}
+2024-12-26 21:46:22,259 [INFO] ROLLBACK
+2024-12-26 21:46:22,273 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-26 21:46:22,274 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-26 21:46:22,275 [INFO]  * Restarting with stat
+2024-12-26 21:46:22,784 [INFO] SELECT DATABASE()
+2024-12-26 21:46:22,784 [INFO] [raw sql] {}
+2024-12-26 21:46:22,785 [INFO] SELECT @@sql_mode
+2024-12-26 21:46:22,785 [INFO] [raw sql] {}
+2024-12-26 21:46:22,785 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:46:22,786 [INFO] [raw sql] {}
+2024-12-26 21:46:22,787 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,787 [INFO] COMMIT
+2024-12-26 21:46:22,788 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,788 [INFO] COMMIT
+2024-12-26 21:46:22,793 [INFO] BEGIN (implicit)
+2024-12-26 21:46:22,793 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:46:22,794 [INFO] [generated in 0.00113s] {}
+2024-12-26 21:46:22,806 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:46:22,807 [INFO] [generated in 0.00038s] {}
+2024-12-26 21:46:22,816 [INFO] ROLLBACK
+2024-12-26 21:46:22,827 [WARNING]  * Debugger is active!
+2024-12-26 21:46:22,830 [INFO]  * Debugger PIN: 891-388-493
+2024-12-26 21:46:27,691 [INFO] Handling request: POST /customers
+2024-12-26 21:46:27,692 [DEBUG] Request data: {'name': 'John Doe', 'email': 'john.doe@example.com', 'phone': '123-456-7890'}
+2024-12-26 21:46:27,704 [ERROR] Error in create_customer: Traceback (most recent call last):
+  File "C:\Users\jacob\M13 Mini-Project Advanced E-Commerce API\app\routes\customers.py", line 26, in create_customer
+    db.session.commit()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1753, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1038, in connection
+    bind = self.session.get_bind(bindkey, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\session.py", line 61, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\extension.py", line 629, in engines
+    return self._app_engines[app]
+           ~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 415, in __getitem__
+    return self.data[ref(key)]
+           ~~~~~~~~~^^^^^^^^^^
+KeyError: <weakref at 0x0000025936A93650; to 'Flask' at 0x0000025932D15B50>
+
+2024-12-26 21:46:27,708 [INFO] 127.0.0.1 - - [26/Dec/2024 21:46:27] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-26 21:48:28,788 [INFO] SELECT DATABASE()
+2024-12-26 21:48:28,789 [INFO] [raw sql] {}
+2024-12-26 21:48:28,789 [INFO] SELECT @@sql_mode
+2024-12-26 21:48:28,789 [INFO] [raw sql] {}
+2024-12-26 21:48:28,790 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:48:28,790 [INFO] [raw sql] {}
+2024-12-26 21:48:28,790 [INFO] BEGIN (implicit)
+2024-12-26 21:48:28,791 [INFO] COMMIT
+2024-12-26 21:48:28,791 [INFO] BEGIN (implicit)
+2024-12-26 21:48:28,792 [INFO] COMMIT
+2024-12-26 21:48:28,810 [INFO] BEGIN (implicit)
+2024-12-26 21:48:28,810 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:48:28,811 [INFO] [generated in 0.00125s] {}
+2024-12-26 21:48:28,824 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:48:28,824 [INFO] [generated in 0.00039s] {}
+2024-12-26 21:48:28,832 [INFO] ROLLBACK
+2024-12-26 21:48:28,847 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-26 21:48:28,847 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-26 21:48:28,850 [INFO]  * Restarting with stat
+2024-12-26 21:48:29,341 [INFO] SELECT DATABASE()
+2024-12-26 21:48:29,341 [INFO] [raw sql] {}
+2024-12-26 21:48:29,342 [INFO] SELECT @@sql_mode
+2024-12-26 21:48:29,342 [INFO] [raw sql] {}
+2024-12-26 21:48:29,343 [INFO] SELECT @@lower_case_table_names
+2024-12-26 21:48:29,343 [INFO] [raw sql] {}
+2024-12-26 21:48:29,343 [INFO] BEGIN (implicit)
+2024-12-26 21:48:29,344 [INFO] COMMIT
+2024-12-26 21:48:29,344 [INFO] BEGIN (implicit)
+2024-12-26 21:48:29,345 [INFO] COMMIT
+2024-12-26 21:48:29,349 [INFO] BEGIN (implicit)
+2024-12-26 21:48:29,350 [INFO] 
+                    CREATE TABLE IF NOT EXISTS test_table (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        name VARCHAR(100)
+                    );
+                
+2024-12-26 21:48:29,350 [INFO] [generated in 0.00103s] {}
+2024-12-26 21:48:29,361 [INFO] DROP TABLE IF EXISTS test_table;
+2024-12-26 21:48:29,361 [INFO] [generated in 0.00045s] {}
+2024-12-26 21:48:29,369 [INFO] ROLLBACK
+2024-12-26 21:48:29,380 [WARNING]  * Debugger is active!
+2024-12-26 21:48:29,383 [INFO]  * Debugger PIN: 891-388-493
+2024-12-26 21:48:36,585 [INFO] Handling request: POST /customers
+2024-12-26 21:48:36,585 [DEBUG] Request data: {'name': 'John Doe', 'email': 'john.doe@example.com', 'phone': '123-456-7890'}
+2024-12-26 21:48:36,598 [ERROR] Error in create_customer: Traceback (most recent call last):
+  File "C:\Users\jacob\M13 Mini-Project Advanced E-Commerce API\app\routes\customers.py", line 25, in create_customer
+    db.session.commit()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\scoping.py", line 597, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 2028, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 60, in save_obj
+    for (
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 223, in _organize_states_for_save
+    for state, dict_, mapper, connection in _connections_for_states(
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1753, in _connections_for_states
+    connection = uowtransaction.transaction.connection(base_mapper)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in connection
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\sqlalchemy\orm\session.py", line 1038, in connection
+    bind = self.session.get_bind(bindkey, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\session.py", line 61, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask_sqlalchemy\extension.py", line 629, in engines
+    return self._app_engines[app]
+           ~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\jacob\AppData\Local\Programs\Python\Python312\Lib\weakref.py", line 415, in __getitem__
+    return self.data[ref(key)]
+           ~~~~~~~~~^^^^^^^^^^
+KeyError: <weakref at 0x00000223FA2F3650; to 'Flask' at 0x00000223F6665B50>
+
+2024-12-26 21:48:36,602 [INFO] 127.0.0.1 - - [26/Dec/2024 21:48:36] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-27 13:11:19,843 [INFO] SELECT DATABASE()
+2024-12-27 13:11:19,844 [INFO] [raw sql] {}
+2024-12-27 13:11:19,847 [INFO] SELECT @@sql_mode
+2024-12-27 13:11:19,847 [INFO] [raw sql] {}
+2024-12-27 13:11:19,847 [INFO] SELECT @@lower_case_table_names
+2024-12-27 13:11:19,847 [INFO] [raw sql] {}
+2024-12-27 13:11:19,849 [INFO] BEGIN (implicit)
+2024-12-27 13:11:19,849 [INFO] COMMIT
+2024-12-27 13:11:19,850 [INFO] BEGIN (implicit)
+2024-12-27 13:11:19,850 [INFO] COMMIT
+2024-12-27 13:11:19,870 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-27 13:11:19,870 [INFO] [33mPress CTRL+C to quit[0m
+2024-12-27 13:11:19,872 [INFO]  * Restarting with stat
+2024-12-27 13:11:20,394 [INFO] SELECT DATABASE()
+2024-12-27 13:11:20,394 [INFO] [raw sql] {}
+2024-12-27 13:11:20,395 [INFO] SELECT @@sql_mode
+2024-12-27 13:11:20,395 [INFO] [raw sql] {}
+2024-12-27 13:11:20,396 [INFO] SELECT @@lower_case_table_names
+2024-12-27 13:11:20,396 [INFO] [raw sql] {}
+2024-12-27 13:11:20,396 [INFO] BEGIN (implicit)
+2024-12-27 13:11:20,397 [INFO] COMMIT
+2024-12-27 13:11:20,397 [INFO] BEGIN (implicit)
+2024-12-27 13:11:20,398 [INFO] COMMIT
+2024-12-27 13:11:20,411 [WARNING]  * Debugger is active!
+2024-12-27 13:11:20,414 [INFO]  * Debugger PIN: 891-388-493
+2024-12-27 13:11:36,842 [INFO] Handling request: POST /customers
+2024-12-27 13:11:36,850 [ERROR] Error in create_customer: <weakref at 0x0000026144F57600; to 'Flask' at 0x00000261411C5AF0>
+2024-12-27 13:11:36,851 [INFO] 127.0.0.1 - - [27/Dec/2024 13:11:36] "[35m[1mPOST /customers HTTP/1.1[0m" 500 -
+2024-12-27 13:12:53,750 [INFO]  * Detected change in 'C:\\Users\\jacob\\M13 Mini-Project Advanced E-Commerce API\\app\\__init__.py', reloading
+2024-12-27 13:12:53,825 [INFO]  * Restarting with stat
+2024-12-27 13:13:03,483 [INFO]  * Restarting with stat
