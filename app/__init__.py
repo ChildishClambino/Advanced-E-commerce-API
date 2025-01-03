@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
@@ -27,7 +27,7 @@ def create_app():
 
     # Initialize extensions
     db.init_app(app)
-    migrate.init_app(app, db)  # Initialize Flask-Migrate
+    migrate.init_app(app, db)
     jwt = JWTManager(app)
 
     # Log app context explicitly
@@ -35,21 +35,20 @@ def create_app():
         app.logger.debug("App context is active.")
         app.logger.debug(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
 
-        # Import models explicitly to register them
+        # Import models explicitly to ensure registration
         from app.models.models import Customer, CustomerAccount, Product, Order, OrderProduct, User
-
-        # Log metadata before applying migrations
-        app.logger.debug(f"Metadata tables: {db.metadata.tables.keys()}")
-
-        # Ensure all tables are registered
-        if 'users' not in db.metadata.tables:
-            app.logger.error("Users table is missing in metadata.")
+        app.logger.debug(f"Registered tables in metadata: {db.metadata.tables.keys()}")
 
     # Register blueprints
-    from app.routes.customers import customers_bp
     from app.routes.auth import auth_bp
+    from app.routes.customers import customers_bp
+    app.register_blueprint(auth_bp, url_prefix='/api/auth')
+    app.register_blueprint(customers_bp, url_prefix='/api/customers')
 
-    app.register_blueprint(customers_bp, url_prefix='/api')
-    app.register_blueprint(auth_bp, url_prefix='/api')
+    # Error handling
+    @app.errorhandler(Exception)
+    def handle_exception(e):
+        app.logger.error(f"Unhandled exception: {str(e)}")
+        return jsonify({"error": "An unexpected error occurred"}), 500
 
     return app

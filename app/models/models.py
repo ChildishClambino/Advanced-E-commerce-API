@@ -29,6 +29,13 @@ class CustomerAccount(db.Model):
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'), nullable=False)
     customer = db.relationship('Customer', back_populates='account')
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'customer_id': self.customer_id
+        }
+
 # Product Model
 class Product(db.Model):
     __tablename__ = 'products'
@@ -36,6 +43,13 @@ class Product(db.Model):
     name = db.Column(db.String(200), nullable=False)
     price = db.Column(db.Float, nullable=False)
     order_items = db.relationship('OrderProduct', back_populates='product', cascade="all, delete-orphan")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'price': self.price
+        }
 
 # Order Model
 class Order(db.Model):
@@ -46,7 +60,14 @@ class Order(db.Model):
     customer = db.relationship('Customer', back_populates='orders')
     products = db.relationship('OrderProduct', back_populates='order', cascade="all, delete-orphan")
 
-# OrderProduct Model
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'order_date': self.order_date,
+            'customer_id': self.customer_id
+        }
+
+# OrderProduct Model (for many-to-many relationship between Order and Product)
 class OrderProduct(db.Model):
     __tablename__ = 'order_products'
     id = db.Column(db.Integer, primary_key=True)
@@ -56,9 +77,25 @@ class OrderProduct(db.Model):
     order = db.relationship('Order', back_populates='products')
     product = db.relationship('Product', back_populates='order_items')
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'order_id': self.order_id,
+            'product_id': self.product_id,
+            'quantity': self.quantity
+        }
+
 # User Model
 class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default="customer")  # Role field for admin/customer distinction
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'role': self.role
+        }
