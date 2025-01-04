@@ -30,13 +30,14 @@ def create_app():
     migrate.init_app(app, db)
     jwt = JWTManager(app)
 
-    # Log app context explicitly
+    # Import models explicitly after initializing db
+    from app.models.models import Customer, CustomerAccount, Product, Order, OrderProduct, User
+
+    # Register models' metadata explicitly
     with app.app_context():
+        db.create_all()  # Create all tables in the database
         app.logger.debug("App context is active.")
         app.logger.debug(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")
-
-        # Import models explicitly to ensure registration
-        from app.models.models import Customer, CustomerAccount, Product, Order, OrderProduct, User
         app.logger.debug(f"Registered tables in metadata: {db.metadata.tables.keys()}")
 
     # Register blueprints
